@@ -37,8 +37,8 @@ networks:
 
 Note that the `DOZZLE_MODE` environment variable is set to `swarm`. This tells Dozzle to automatically discover other Dozzle instances in the swarm. The `overlay` network is used to create the mesh network between the different Dozzle instances.
 
-> [!NOTE]
-> Due to implementation details, <strike>the name for the service must be exactly `dozzle`</strike>. This is no longer required starting with version `v8.2`. You can name the service anything you want. The service name is automatically detected by Dozzle using `com.docker.swarm.service.name` label.
+> [!WARNING]
+> Socket-proxy cannot be used in Docker Swarm mode. This limitation stems from Docker itself, not Dozzle. In Swarm mode, services can only communicate with other services, but Dozzle requires direct connections to individual proxy instances—which isn't supported. If you have a solution for using socket-proxy in Swarm mode, we'd love to hear from you!
 
 ## Setting Up Simple Authentication in Swarm Mode
 
